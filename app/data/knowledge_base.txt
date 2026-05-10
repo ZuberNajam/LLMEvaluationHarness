@@ -1,0 +1,5 @@
+AWS stands for Amazon Web Services, and it is the Amazon cloud provider.
+RAG stands for Retrieval Augmented Generation.
+Promptfoo is a framework for evaluating LLM outputs.
+FastAPI is a Python API framework.
+LLM stands for Large Language Model.

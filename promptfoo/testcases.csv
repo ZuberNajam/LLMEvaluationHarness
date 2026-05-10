@@ -1,0 +1,4 @@
+question,expected
+"What is AWS?","AWS stands for Amazon Web Services, and it is the Amazon cloud provider."
+"What is RAG?","RAG stands for Retrieval Augmented Generation."
+"What is promptfoo?","Promptfoo is a framework for evaluating LLM outputs."
