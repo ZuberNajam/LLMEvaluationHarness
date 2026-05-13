@@ -16,3 +16,18 @@ tests: file://testcases.csv
 assert:
   - type: contains
     value: "{{expected}}"
+  - type: equals
+    value: "PASS"
+    transform: output.hallucination_check
+
+  - type: equals
+    value: "{{expected_hallucination}}"
+    transform: output.hallucination_check
+
+  - type: greater-than
+    value: "0.7"
+    transform: output.context_precision
+
+  - type: greater-than
+    value: "0.7"
+    transform: output.context_recall

@@ -1,4 +1,5 @@
-question,expected
-"What is AWS?","AWS stands for Amazon Web Services, and it is the Amazon cloud provider."
-"What is RAG?","RAG stands for Retrieval Augmented Generation."
-"What is promptfoo?","Promptfoo is a framework for evaluating LLM outputs."
+question,expected,expected_hallucination
+"What is AWS?","AWS stands for Amazon Web Services, and it is the Amazon cloud provider.","PASS"
+"What is RAG?","RAG stands for Retrieval Augmented Generation.","PASS"
+"What is promptfoo?","Promptfoo is a framework for evaluating LLM outputs.","PASS"
+"Who invented RAG?", "","FAIL"
