@@ -13,3 +13,4 @@ class AnswerResponse(BaseModel):
     context_precision: float
     context_recall: float
     latency: float
+    answer_similarity: float
