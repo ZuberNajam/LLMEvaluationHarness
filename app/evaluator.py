@@ -1,6 +1,9 @@
-from app.ollama_client import OllamaClient
+# from app.ollama_client import OllamaClient
 
-client = OllamaClient()
+# client = OllamaClient()
+
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 
 def hallucination_check(context, answer):
@@ -51,10 +54,13 @@ def hallucination_check(context, answer):
 
 def evaluate_hallucination(context, answer):
     prompt = hallucination_check(context, answer)
-    evaluation = client.generate(prompt)
-    result = evaluation["response"].strip().upper()
+    # evaluation = client.generate(prompt)
+    evaluation = client.responses.create(
+        model="gpt-oss:20b",
+        input=prompt
+    ).output_text.strip().upper()
 
-    if "PASS" in result:
+    if "PASS" in evaluation:
         return "PASS"
     else:
         return "FAIL"

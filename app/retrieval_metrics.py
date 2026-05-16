@@ -1,6 +1,9 @@
-from app.ollama_client import OllamaClient
+# from app.ollama_client import OllamaClient
 
-client = OllamaClient()
+# client = OllamaClient()
+
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 
 def evaluate_context_precision(question, context):
@@ -25,7 +28,11 @@ Scoring:
 Return ONLY a number between 0.0 and 1.0.
 """
 
-    result = client.generate(prompt)["response"].strip()
+    # result = client.generate(prompt)["response"].strip()
+    result = client.responses.create(
+        model="gpt-oss:20b",
+        input=prompt
+    ).output_text.strip()
 
     import re
 
@@ -61,7 +68,11 @@ Scoring:
 Return ONLY a number between 0.0 and 1.0.
 """
 
-    result = client.generate(prompt)["response"].strip()
+    # result = client.generate(prompt)["response"].strip()
+    result = client.responses.create(
+        model="gpt-oss:20b",
+        input=prompt
+    ).output_text.strip()
 
     import re
 
