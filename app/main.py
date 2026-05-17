@@ -33,7 +33,10 @@ client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
 # print(response.output_text)
 
-
+@app.get("/models")
+async def get_models():
+    models = client.models.list()
+    return models
 
 @app.post("/answer", response_model= AnswerResponse)
 async def answer(req: QuestionRequest):
